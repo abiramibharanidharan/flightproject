@@ -1,0 +1,28 @@
+<!--<div *ngIf="flight">
+    <h4>{{flight.FlightFrom}}</h4>
+    <h4>{{flight.FlightTo}}</h4>
+    <h4>{{flight.Airlines}}</h4>
+    <h4>{{flight.Status}}</h4>
+</div>-->
+    
+        
+<table border="1">
+    <thead>
+        <td>Flight From</td>
+        <td>Flight TO</td>
+        <td>Airline</td>
+        <td>Date</td>
+        <td>Time</td>
+        <td>Status</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of flights">
+            <td>{{f.FlightFrom}}</td>
+            <td>{{f.FlightTo}}</td>
+            <td>{{f.Airlines}}</td>           
+            <td>{{f.Date}}</td>
+            <td>{{f.Time}}</td>
+            <td>{{f.Status}}
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,14 @@
+<div *ngIf="flight">
+  <h2>{{ flight.FlightFrom }} Details</h2>
+  <div><span>FlightTo: </span>{{flight.FlightTo}}</div>
+  <div>
+    <label>Airlines:
+      <input [(ngModel)]="flight.Airlines" placeholder="Airlines"/>
+    </label>
+    <label>Status:
+      <input [(ngModel)]="flight.Status" placeholder="Airlines"/>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+ 
+</div>

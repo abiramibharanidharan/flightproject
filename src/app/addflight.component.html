@@ -1,0 +1,102 @@
+
+<div>
+<h2> Add flight</h2>
+<div>
+  <label>Flight From:</label>
+   <input type="text" [(ngModel)]="FlightFrom" name="FlightFrom" class="form-control" placeholder="FlightFrom" required
+                  #reffirst='ngModel' pattern="^[a-zA-Z]*$" maxlength="15" minlength="1">
+            <div *ngIf="reffirst.errors && (reffirst.dirty || reffirst.touched)" class="alert alert-danger">
+              <div [hidden]="!reffirst.errors.required">
+                             FlightFrom is required.
+              </div>
+              <div [hidden]="!reffirst.errors.minlength">
+                              Please enter atleast 2 characeters.
+               </div>
+                <div [hidden]="!reffirst.errors.pattern">
+                      Please enter alphabets.
+                </div>
+            </div>
+
+  <label>Flight To  :</label>
+  <input type="text" [(ngModel)]="FlightTo" name="FlightTo" class="form-control" placeholder="Flight To" required
+                  #refto='ngModel' pattern="^[a-zA-Z]*$" maxlength="15" minlength="1">
+            <div *ngIf="refto.errors && (refto.dirty || refto.touched)" class="alert alert-danger">
+              <div [hidden]="!refto.errors.required">
+                              FlightTO is required.
+              </div>
+              <div [hidden]="!refto.errors.minlength">
+                              Please enter atleast 2 characeters.
+               </div>
+                <div [hidden]="!refto.errors.pattern">
+                      Please enter alphabets.
+                </div>
+            </div>
+  <label>Airlines   :</label> 
+  <input type="text" [(ngModel)]="Airlines" name="Airlines" class="form-control" placeholder="Airlines" required
+                  #refa='ngModel' pattern="^[a-zA-Z]*$" maxlength="15" minlength="1">
+            <div *ngIf="refa.errors && (refa.dirty || refa.touched)" class="alert alert-danger">
+              <div [hidden]="!refa.errors.required">
+                              Airline Name is required.
+              </div>
+              <div [hidden]="!refa.errors.minlength">
+                              Please enter atleast 2 characeters.
+               </div>
+                <div [hidden]="!refa.errors.pattern">
+                      Please enter alphabets.
+                </div>
+            </div>
+  <label>Flight Date:</label> 
+   <input type="date" [(ngModel)]="Date" name="Date" id="Date" class="form-control" placeholder=" Enter date(mm/dd/yyyy) "
+                required #refdat='ngModel' pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" >
+               <div *ngIf="refdat.errors?.date">
+                    Enter date
+               </div>
+               <div *ngIf="refdat.errors && (refdat.dirty || refdat.touched)" class="alert alert-danger">
+                  <div [hidden]="!refdat.errors.required">
+                      Date is required.
+                  </div>
+               </div>
+  <label>Flight Time:</label> 
+  <div>
+  <input type="time" [value]="date" (input)="date = $event.target.valueAsDate" />
+  </div>
+  <label>Status:</label><input type="text" [(ngModel)]="Status" name="Status" class="form-control" placeholder="Status" required
+                  #refsat='ngModel' pattern="^[a-zA-Z]*$" maxlength="15" minlength="1">
+            <div *ngIf="refsat.errors && (refsat.dirty || refsat.touched)" class="alert alert-danger">
+              <div [hidden]="!refsat.errors.required">
+                              Airline Name is required.
+              </div>
+              <div [hidden]="!refsat.errors.minlength">
+                              Please enter atleast 2 characeters.
+               </div>
+                <div [hidden]="!refsat.errors.pattern">
+                      Please enter alphabets.
+                </div>
+            </div>
+
+  <button (click)="add(FlightFrom,FlightTo,Airlines,Date,Time,Status)">
+    Add
+  </button>
+</div>
+<div *ngIf="tabelshow">
+<table border="1">
+    <thead>
+        <td>Flight From</td>
+        <td>Flight TO</td>
+        <td>Airline</td>
+        <td>Date</td>
+        <td>Time</td>
+        <td>Status</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of flights">
+            <td>{{f.FlightFrom}}</td>
+            <td>{{f.FlightTo}}</td>
+            <td>{{f.Airlines}}</td>           
+            <td>{{f.Date}}</td>
+            <td>{{f.Time}}</td>
+            <td>{{f.Status}}
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,26 @@
+<div style="border: 1px solid"> 
+  <div *ngIf="welcomedisplay">
+<h2 *ngIf="auth.isAuthenticated()">
+  Welcome to Flight App
+</h2>
+  
+  <p> We're a high-growth business with a simple aim: to inspire travells
+       around the world and make travel search as easy as
+       possible through out world-class technology.
+  </p>
+
+  <button
+        class="btn btn-success btn-margin"
+        routerLink="/search-flight" (click)="loadflights()">
+          Flight search
+  </button>
+    </div>
+</div>
+
+<h4 *ngIf="!auth.isAuthenticated()">
+  You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
+</h4>
+
+<div *ngIf="loadFlight">
+ <search-flight></search-flight>
+ </div>

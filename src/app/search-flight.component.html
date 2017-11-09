@@ -1,0 +1,13 @@
+<h4>Flight Search</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let flight of flights$ | async" >
+      <a routerLink="/detail/{{flight.FlightFrom}}">
+        {{flight.FlightFrom}}
+      </a>
+    </li>
+  </ul>
+    
+  
+ 

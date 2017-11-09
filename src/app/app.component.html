@@ -1,0 +1,47 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Flight-App</a>
+
+      <button
+        class="btn btn-primary btn-margin"
+        routerLink="/home">
+          Home
+      </button>
+        <button
+        class="btn btn-primary btn-margin"
+        routerLink="/add-flight">
+          Add Flight
+      </button>
+
+    <button
+        class="btn btn-primary btn-margin"
+        routerLink="/flight">
+          Flight Status
+      </button>  
+    
+      <button
+        class="btn btn-primary btn-margin"
+        *ngIf="!auth.isAuthenticated()"
+        (click)="auth.login()">
+          Log In
+      </button>
+
+      <button
+        class="btn btn-primary btn-margin"
+        *ngIf="auth.isAuthenticated()"
+        (click)="auth.logout()">
+          Log Out
+      </button>
+
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+   <h4 *ngIf="!auth.isAuthenticated()">
+  You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
+</h4>
+
+  <router-outlet></router-outlet>
+</main>
